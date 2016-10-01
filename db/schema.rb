@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160930231541) do
+ActiveRecord::Schema.define(version: 20161001133103) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,7 +26,8 @@ ActiveRecord::Schema.define(version: 20160930231541) do
   add_index "examples", ["user_id"], name: "index_examples_on_user_id", using: :btree
 
   create_table "reservations", force: :cascade do |t|
-    t.string   "dates"
+    t.string   "start_date"
+    t.string   "end_date"
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
