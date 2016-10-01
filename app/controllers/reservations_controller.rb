@@ -1,4 +1,4 @@
-class ReservationsController < ApplicationController
+class ReservationsController < ProtectedController
   before_action :set_reservation, only: [:show, :update, :destroy]
 
   # GET /reservations
@@ -18,7 +18,7 @@ class ReservationsController < ApplicationController
   # POST /reservations
   # POST /reservations.json
   def create
-    @reservation = Reservation.new(reservation_params)
+    @reservation = current_user.reservations.build(reservation_params)
 
     if @reservation.save
       render json: @reservation, status: :created, location: @reservation
