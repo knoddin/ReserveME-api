@@ -1,5 +1,5 @@
 curl --include --request POST http://localhost:3000/reservations \
-  --header "Authorization: Token token=BAhJIiVkMTY1Yjg5NjJlNGYyOTI0ZWMyMWQ4YWFkN2FmY2M2OQY6BkVG--88c6cc41ec00bb8b436725df11690ad09aad536d" \
+  --header "Authorization: Token token=BAhJIiVlYWQ2MTgzOTkwN2I1ZGRkNzllNjM0NmQ4NmE4OWJlNAY6BkVG--6afaf0105eb88db70739d4634639d071bbd20c15" \
   --header "Content-Type: application/json" \
   --data '{
     "reservation": {
