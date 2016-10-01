@@ -1,4 +1,4 @@
 class User < ActiveRecord::Base
   include Authentication
-  has_many :reservations
+  has_many :examples
 end
