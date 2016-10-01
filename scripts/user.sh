@@ -1,4 +1,4 @@
 #!/bin/bash
 
 curl --include --request GET http://localhost:3000/users/1 \
-  --header "Authorization: Token token=BAhJIiU1NTg2NzI1ZDA3OTFlODBjMDlhZjYxODdkNWZkNmRjMwY6BkVG--00763c7d8ea303a1546124042be7e5c4a5cfa0a1"
+  --header "Authorization: Token token=BAhJIiU2OGQxZDE4MzkzNmVhNWZlNWM1Y2ZlOWY5Yjg1MWIwZQY6BkVG--53c6aadaf822244723e6b241728e0d2cf0319252"

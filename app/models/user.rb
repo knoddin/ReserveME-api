@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
   include Authentication
-  has_many :examples
+  has_many :weeks, through: :reservations
+  has_many :reservations, dependent: :destroy
 end

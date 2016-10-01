@@ -1,5 +1,4 @@
 class WeeksController < ApplicationController
-  require 'csv'
   before_action :set_week, only: [:show, :update, :destroy]
 
   # GET /weeks
