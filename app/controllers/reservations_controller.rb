@@ -50,7 +50,7 @@ class ReservationsController < ApplicationController
   private
 
     def set_reservation
-      @reservation = Reservation.find(params[:id])
+      @reservation = current_user.reservations.find(params[:id])
     end
 
     def reservation_params
