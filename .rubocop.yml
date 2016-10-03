@@ -3,3 +3,4 @@ Style/Documentation:
     - 'app/controllers/*'
     - 'app/models/*'
     - 'app/serializers/*'
+    - 'data/*'
