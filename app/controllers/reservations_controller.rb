@@ -1,4 +1,4 @@
-class ReservationsController < ApplicationController
+class ReservationsController < ProtectedController
   before_action :set_reservation, only: [:show, :update, :destroy]
 
   # GET /reservations
