@@ -18,7 +18,7 @@
 # end
 require 'CSV'
 Week.transaction do
-  CSV.foreach('data/weeks.csv', headers: true, header_converters: -> (h) { h.downcase.to_sym }) do |week|
+  CSV.foreach(Rails.root + 'data/weeks.csv', headers: true, header_converters: -> (h) { h.downcase.to_sym }) do |week|
    p week
    Week.create(start_date: week[:start_date], end_date: week[:end_date].to_s)
  end
