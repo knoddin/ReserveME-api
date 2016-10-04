@@ -1,7 +1,25 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
+# require 'CSV'
 #
-# Examples:
+# # namespace :db do
+# #   desc 'Load example data from db/examples.rb'
+# #   task examples: :environment do
+# #     require_relative '../../db/examples'
+# #   end
 #
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+# desc 'Fill the weeks table with week data'
+# task weeks: :environment do
+#   Week.transaction do
+#     CSV.foreach(Rails.root + 'data/weeks.csv', headers: true) do |row|
+#       week = row.to_hash
+#       next if Week.exists? week
+#       Week.create!(week)
+#     end
+#   end
+# end
+require 'CSV'
+Week.transaction do
+  CSV.foreach('data/weeks.csv', headers: true, header_converters: -> (h) { h.downcase.to_sym }) do |week|
+   p week
+   Week.create(start_date: week[:start_date], end_date: week[:end_date].to_s)
+ end
+end

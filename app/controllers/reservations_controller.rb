@@ -18,7 +18,7 @@ class ReservationsController < ProtectedController
   # POST /reservations
   # POST /reservations.json
   def create
-    @reservation = current_user.reservations.build(reservation_params)
+    @reservation = Reservation.new(reservation_params)
 
     if @reservation.save
       render json: @reservation, status: :created, location: @reservation
@@ -49,11 +49,11 @@ class ReservationsController < ProtectedController
 
   private
 
-    def set_reservation
-      @reservation = current_user.reservations.find(params[:id])
-    end
+  def set_reservation
+    @reservation = Reservation.find(params[:id])
+  end
 
-    def reservation_params
-      params.require(:reservation).permit(:user_id, :week_id)
-    end
+  def reservation_params
+    params.require(:reservation).permit(:user_id, :week_id)
+  end
 end
