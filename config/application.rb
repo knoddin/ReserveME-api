@@ -41,7 +41,7 @@ module ReserveMEApi
     # Cross-Origin Resource Sharing
     config.middleware.use Rack::Cors do
       allow do
-        origins ENV['CLIENT_ORIGIN'] || 'https://knoddin.github.io/ReserveME-client'
+        origins ENV['CLIENT_ORIGIN'] || 'https://knoddin.github.io'
         resource '*',
                  headers: :any,
                  methods: [:options, :get,
