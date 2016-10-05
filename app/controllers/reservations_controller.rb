@@ -1,11 +1,16 @@
 class ReservationsController < ProtectedController
-  before_action :set_reservation, only: [:show, :update, :destroy]
+  before_action :set_reservation, only: [:update, :destroy]
 
   # GET /reservations
   # GET /reservations.json
   def index
-    @reservations = Reservation.all
+    @reservations = Reservation.all.reverse
 
+    render json: @reservations
+  end
+
+  def my_reservations
+    @reservations = Reservation.where("user_id=#{current_user.id}").reverse
     render json: @reservations
   end
 
@@ -50,7 +55,7 @@ class ReservationsController < ProtectedController
   private
 
   def set_reservation
-    @reservation = Reservation.find(params[:id])
+    @reservation = current_user.reservations.find(params[:id])
   end
 
   def reservation_params
