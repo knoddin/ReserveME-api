@@ -35,7 +35,7 @@ class ReservationsController < ProtectedController
   # PATCH/PUT /reservations/1
   # PATCH/PUT /reservations/1.json
   def update
-    @reservation = Reservation.find(params[:id])
+    # @reservation = Reservation.find(params[:id])
 
     if @reservation.update(reservation_params)
       head :no_content
