@@ -9,6 +9,11 @@ class ReservationsController < ProtectedController
     render json: @reservations
   end
 
+  def my_reservations
+    @reservations = Reservation.where("user_id=#{current_user.id}").reverse
+    render json: @reservations
+  end
+
   # GET /reservations/1
   # GET /reservations/1.json
   def show
@@ -18,7 +23,7 @@ class ReservationsController < ProtectedController
   # POST /reservations
   # POST /reservations.json
   def create
-    @reservation = Reservation.new(reservation_params)
+    @reservation = current_user.reservations.build(reservation_params)
 
     if @reservation.save
       render json: @reservation, status: :created, location: @reservation
@@ -30,7 +35,6 @@ class ReservationsController < ProtectedController
   # PATCH/PUT /reservations/1
   # PATCH/PUT /reservations/1.json
   def update
-    @reservation = Reservation.find(params[:id])
 
     if @reservation.update(reservation_params)
       head :no_content
@@ -49,11 +53,11 @@ class ReservationsController < ProtectedController
 
   private
 
-  def set_reservation
-    @reservation = Reservation.find(params[:id])
-  end
+    def set_reservation
+      @reservation = current_user.reservations.find(params[:id])
+    end
 
-  def reservation_params
-    params.require(:reservation).permit(:user_id, :week_id)
-  end
+    def reservation_params
+      params.require(:reservation).permit(:start_date, :end_date, :comments, :user_id)
+    end
 end

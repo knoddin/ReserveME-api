@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :reservations, except: [:new, :edit]
-  resources :weeks, except: [:new, :edit]
+  get '/my_reservations' => 'reservations#my_reservations'
   resources :examples, except: [:new, :edit]
   post '/sign-up' => 'users#signup'
   post '/sign-in' => 'users#signin'
