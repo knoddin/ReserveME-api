@@ -47,6 +47,9 @@ GEM
     byebug (8.2.5)
     coderay (1.1.1)
     concurrent-ruby (1.0.2)
+    date_validator (0.9.0)
+      activemodel
+      activesupport
     diff-lcs (1.2.5)
     dotenv (2.1.1)
     dotenv-rails (2.1.1)
@@ -164,6 +167,7 @@ DEPENDENCIES
   active_model_serializers (~> 0.10.0)
   bcrypt (~> 3.1.11)
   byebug (~> 8.2.2)
+  date_validator
   dotenv-rails (~> 2.1, >= 2.1.1)
   pg
   pry (~> 0.10.3)
